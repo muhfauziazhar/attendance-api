@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attendances",
+  "info": {
+    "singularName": "attendance",
+    "pluralName": "attendances",
+    "displayName": "Attendance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "time": {
+      "type": "datetime"
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "WFH",
+        "WFO"
+      ]
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "attendances"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Check In",
+        "Check Out"
+      ]
+    }
+  }
+}
